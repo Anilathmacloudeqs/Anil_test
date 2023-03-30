@@ -1,0 +1,77 @@
+http://localhost:8888/customer/search
+ 
+{
+    "search":{
+        "id":"1635257511_0013400001abcdjkshd5",
+        "requester":"test@email.com",
+        "sourceName":"SFDC",
+        "customer":{
+            "name":"keshav",
+            "addressLine1":"California",
+            "city":"",
+            "state":"California",
+            "postalCode":0,
+            "country":"United States",
+            "isoCountrycode":"US"
+        }
+    }
+} 
+
+response:
+{"requestId": "1635257511_0013400001abcdjkshd5", "results": {"Customer": {"ID": "23031511204726030765", "customerName":
+"keshav", "addressLine1": "California", "addressLine2": "", "city": "", "state": "California", "stateCode":
+"California", "postalCode": "0", "country": "United States", "isoCountrycode": "US", "dunsNumber": "", "address_score":
+0, "duns_score": 0, "namecountry_score": 0, "newcustomer": "Y"}, "potentialCustomer": []}, "status": {"statusCode":
+"201", "statusDescription": "New customer"}} 
+--------------------------------------- 
+
+http://localhost:8888/customer/create 
+
+{
+    "createCustomer": {
+        "CMID": "23031511431486034308",
+        "sourceID": "0013400001abcdjkshd5",
+        "sourceName": "SFDC",
+        "requester": "test@email.com",
+        "requestId": "1635257511_0013400001abcdjkshd5"
+    }
+} 
+
+response: {"customer": {"id": "23031511431486034308", "sourceID": "SFDC::0013400001abcdjkshd5", "sourceName": "SFDC",
+"customerName": "keshav", "addressLine1": "California", "addressLine2": "", "city": "", "state": "California",
+"stateCode": "California", "postalCode": "0", "country": "United States", "isoCountrycode": "US"}, "status":
+{"statusCode": "201", "statusDescription": "customer created"}} 
+
+------------------------------------------------- 
+
+JSON FOR EXACT MATCH FOUND CUSTOMERS: 
+
+{
+    "search": {
+        "id": "1635257511_0013400001abcdjkshd5",
+        "requester": "test@email.com",
+        "sourceName": "SFDC",
+        "customer": {
+            "name": "keshav",
+            "addressLine1": "California",
+            "city": "",
+            "state": "California",
+            "postalCode": 0,
+            "country": "United States",
+            "isoCountrycode": "US"
+        }
+    }
+} 
+----
+ 
+RESPONSE: {"requestId": "1635257511_0013400001abcdjkshd5", "results": {"Customer": {"ID": "23031511431486034308", "customerName":
+"keshav", "addressLine1": "California", "addressLine2": "", "city": "", "state": "CALIFORNIA", "stateCode":
+"California", "postalCode": "0", "country": "United States", "isoCountrycode": "US", "dunsNumber": "", "address_score":
+0.6293706294, "duns_score": 0, "namecountry_score": 1.0, "sourceID": "SFDC::SFDC::0013400001abcdjkshd5", "sourceName":
+"SFDC", "dunsBusinessName": "", "industryCategory": "0", "industrySubCategory": "0", "guEmployeeCount": "",
+"guRevenueUSD": "", "dunsSIC2Code": "", "dunsSIC2Description": "", "dunsDomainName": "", "dunsTradeStyleName": "",
+"duDunsNumber": "", "duBusinessName": "", "guDunsNumber": "", "guBusinessName": ""}, "potentialCustomer": [{"ID":
+"23031511431486034308", "sourceID": "SFDC::0013400001abcdjkshd5", "sourceName": "SFDC", "customerName": "keshav",
+"addressLine1": "California", "addressLine2": "", "city": "", "state": "CALIFORNIA", "stateCode": "California",
+"postalCode": "0", "country": "United States", "isoCountrycode": "US", "dunsNumber": ""}]}, "status": {"statusCode":
+"200", "statusDescription": "Match Found"}} -----------------------------------

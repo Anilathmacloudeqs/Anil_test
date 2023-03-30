@@ -1,0 +1,29 @@
+ pip uninstall jinja2
+
+ pip install Jinja2==2.10.3
+
+ pip install markupsafe==2.0.1
+
+ pip install itsdangerous==2.0.1
+
+ pip install snowflake-connector-python
+
+ pip install snowflake-sqlalchemy
+
+-----------------------------------
+
+ pip uninstall psycopg2
+
+ pip list --outdated
+
+ pip install --upgrade wheel
+
+ pip install --upgrade setuptools
+
+ pip install psycopg2
+ 
+
+
+
+
+
